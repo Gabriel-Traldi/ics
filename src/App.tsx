@@ -1,12 +1,12 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useState } from 'react';
 
 import { LatLngExpression, Icon, divIcon } from 'leaflet';
 
-import { LayerGroup, MapContainer, Marker, Popup, TileLayer, Circle, useMapEvents, useMap } from 'react-leaflet'
+import { LayerGroup, MapContainer, Marker, Popup, TileLayer, Circle, useMapEvents } from 'react-leaflet'
 
 // import MarkerClusterGroup from "react-leaflet-cluster";
 
-import { GeoSearchControl, BingProvider } from 'leaflet-geosearch';
+// import { GeoSearchControl, BingProvider } from 'leaflet-geosearch';
 
 import './App.css'
 
@@ -28,7 +28,7 @@ const greenIcon = new Icon({
 //   shadowSize: [41, 41]
 // });
 
-const orangeOptions = { color: 'orange' }
+// const orangeOptions = { color: 'orange' }
 
 const ICS_LATLNG = [-23.1792564, -46.9159328] as LatLngExpression;
 
@@ -507,37 +507,37 @@ const DynamicLabel = ({ position, text, children }: { children: ReactNode, posit
 };
 
 
-const SearchField = ({ apiKey }: { apiKey: string }) => {
-  const provider = new BingProvider({
-    params: {
-      key: apiKey,
-    },
-  });
+// const SearchField = ({ apiKey }: { apiKey: string }) => {
+//   const provider = new BingProvider({
+//     params: {
+//       key: apiKey,
+//     },
+//   });
 
-  // @ts-ignore
-  const searchControl = new GeoSearchControl({
-    provider: provider,
-    style: 'bar',
-    showMarker: false, // Não mostrar marcador automaticamente
-    updateMap: false,
-  });
+//   // @ts-ignore
+//   const searchControl = new GeoSearchControl({
+//     provider: provider,
+//     style: 'bar',
+//     showMarker: false, // Não mostrar marcador automaticamente
+//     updateMap: false,
+//   });
 
-  const map = useMap();
+//   const map = useMap();
 
-  useEffect(() => {
-    map.addControl(searchControl);
+//   useEffect(() => {
+//     map.addControl(searchControl);
 
-    map.on('geosearch/showlocation', (result) => {
-      console.log('Localização selecionada:', result);
-      // onLocationSelected(result.location); // Passar a localização para o callback
-    });
-    return () => {
-      map.removeControl(searchControl);
-      map.off('geosearch/showlocation');
-    };
-  }, []);
+//     map.on('geosearch/showlocation', (result) => {
+//       console.log('Localização selecionada:', result);
+//       // onLocationSelected(result.location); // Passar a localização para o callback
+//     });
+//     return () => {
+//       map.removeControl(searchControl);
+//       map.off('geosearch/showlocation');
+//     };
+//   }, []);
 
-  return null;
-};
+//   return null;
+// };
 
 export default App
