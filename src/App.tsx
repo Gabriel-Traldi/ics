@@ -19,8 +19,8 @@ const greenIcon = new Icon({
   shadowSize: [41, 41]
 });
 
-const orangeIcon = new Icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
+const rdIcon = new Icon({
+  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/images/marker-shadow.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
@@ -444,9 +444,9 @@ function App() {
               center={item.localization}
               radius={RADIUS_RD}
             />
-            <Marker position={item.localization} icon={orangeIcon}>
+            <Marker position={item.localization} icon={rdIcon}>
               <Popup>
-                {item.label}
+                RD: {item.label}
               </Popup>
             </Marker>
           </LayerGroup>
